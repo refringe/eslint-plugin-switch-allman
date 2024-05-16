@@ -5,7 +5,7 @@
     "author": "Refringe <me@refringe.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/refringe/eslint-plugin-switch-allman.git"
+        "url": "git@github.com:refringe/eslint-plugin-switch-allman.git"
     },
     "license": "MIT",
     "main": "lib/index.js",
