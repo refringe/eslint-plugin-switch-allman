@@ -18,18 +18,18 @@ After installation, add the plugin to your ESLint configuration file:
 
 ```json
 {
-    "plugins": ["eslint-plugin-switch-allman"],
+    "plugins": ["switch-allman"],
     "rules": {
-        "eslint-plugin-switch-allman/switch-case-allman": "error"
+        "switch-allman/case-allman": "error"
     }
 }
 ```
 
-This sets up the `switch-case-allman` rule to throw an error whenever the Allman brace style is not followed in a switch case statements.
+This sets up the `case-allman` rule to throw an error whenever the Allman brace style is not followed in a switch case statements.
 
 ## Rules
 
-### `switch-case-allman`
+### `case-allman`
 
 Enforces that opening braces for switch case statements must be on a new line.
 
