@@ -1,0 +1,34 @@
+{
+    "name": "eslint-plugin-switch-allman",
+    "version": "1.0.0",
+    "description": "Enforce Allman-style braces for switch case statements.",
+    "author": "Refringe <me@refringe.com>",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "license": "MIT",
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "mocha tests/**/*.js"
+    },
+    "dependencies": {
+        "eslint-utils": "^3.0.0"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3.0.2",
+        "eslint": "^9.2.0",
+        "mocha": "^10.4.0"
+    },
+    "peerDependencies": {
+        "eslint": "^7.0.0"
+    },
+    "keywords": [
+        "eslint",
+        "eslint-plugin",
+        "lint",
+        "allman",
+        "switch",
+        "case"
+    ]
+}
