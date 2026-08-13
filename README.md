@@ -14,24 +14,42 @@ Note: You need to have ESLint installed on your project (version 7.0.0 or higher
 
 ## Usage
 
-After installation, add the plugin to your ESLint configuration file:
+After installation, add the plugin to your ESLint configuration file.
+
+Flat config (`eslint.config.js`, ESLint 9 and later):
+
+```javascript
+const switchAllman = require("eslint-plugin-switch-allman");
+
+module.exports = [
+    {
+        plugins: { "switch-allman": switchAllman },
+        rules: {
+            "switch-allman/switch-allman": "error",
+        },
+    },
+];
+```
+
+Legacy config (`.eslintrc.json`):
 
 ```json
 {
     "plugins": ["switch-allman"],
     "rules": {
-        "switch-allman/case-allman": "error"
+        "switch-allman/switch-allman": "error"
     }
 }
 ```
 
-This sets up the `case-allman` rule to throw an error whenever the Allman brace style is not followed in a switch case statements.
+This sets up the `switch-allman` rule to throw an error whenever the Allman brace style is not followed in a switch case statements.
 
 ## Rules
 
-### `case-allman`
+### `switch-allman`
 
-Enforces that opening braces for switch case statements must be on a new line.
+Enforces that opening braces for switch case statements must be on a new line. Applies to
+`default` clauses as well as `case` clauses, and is autofixable.
 
 Valid Example
 
