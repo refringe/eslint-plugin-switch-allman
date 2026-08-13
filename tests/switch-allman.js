@@ -1,8 +1,8 @@
 const RuleTester = require("eslint").RuleTester;
-const rule = require("../lib/rules/switch-case-allman");
+const rule = require("../lib/rules/switch-allman");
 
 const ruleTester = new RuleTester();
-ruleTester.run("switch-case-allman", rule, {
+ruleTester.run("switch-allman", rule, {
     valid: [
         `
         switch (x)
