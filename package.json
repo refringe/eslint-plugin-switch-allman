@@ -10,10 +10,12 @@
     "license": "MIT",
     "main": "lib/index.js",
     "scripts": {
-        "test": "mocha tests/**/*.js"
+        "test": "mocha tests/**/*.js",
+        "coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --statements 100 npm test"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.6",
+        "c8": "^12.0.0",
         "eslint": "^10.8.1",
         "mocha": "^11.8.0"
     },
