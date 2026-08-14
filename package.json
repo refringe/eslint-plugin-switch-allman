@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-switch-allman",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Enforce Allman-style braces for switch case statements.",
     "author": "Refringe <me@refringe.com>",
     "repository": {
