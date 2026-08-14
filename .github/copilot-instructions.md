@@ -36,7 +36,9 @@ Five workflows run on every push/PR to `develop` and `main` (in `.github/workflo
 
 A sixth workflow (`release.yml`) runs only on `v*.*.*` tags. It verifies the tag matches `package.json`, runs the tests, publishes to npm, and cuts a GitHub release with a changelog generated from `git log`.
 
-Publishing uses npm trusted publishing (OIDC), not an `NPM_TOKEN` secret. The trust is registered on npmjs.com against this repository and the workflow filename `release.yml` — renaming that file breaks publishing until npm is updated to match, and the job must keep `id-token: write`. npm is upgraded before publishing because OIDC requires npm 11.5.1+ and `setup-node` ships npm 10.x. Provenance is attested automatically, so `--provenance` is not passed.
+Publishing uses npm trusted publishing (OIDC), not an `NPM_TOKEN` secret. The trust is registered on npmjs.com against this repository and the workflow filename `release.yml` — renaming that file breaks publishing until npm is updated to match, and the job must keep `id-token: write`. Provenance is attested automatically, so `--provenance` is not passed.
+
+`release.yml` pins Node 24 while every other workflow uses Node 22. This is deliberate: OIDC requires npm 11.5.1+, `setup-node` has no npm-version input, and the bundled npm follows the Node line — Node 22 ships npm 10.9.x, Node 24 ships npm 11.x. Do not lower `release.yml` to Node 22.
 
 ## Code Style Requirements
 
