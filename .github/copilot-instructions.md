@@ -34,7 +34,9 @@ Five workflows run on every push/PR to `develop` and `main` (in `.github/workflo
 4. **Vulnerability** (`vulnerability.yml`): job `Vulnerability Check` (`npm run vulncheck`)
 5. **CodeQL** (`codeql.yml`): job `Analyse`, matrix over `actions` and `javascript-typescript`
 
-A sixth workflow (`release.yml`) runs only on `v*.*.*` tags. It verifies the tag matches `package.json`, runs the tests, publishes to npm with provenance, and cuts a GitHub release with a changelog generated from `git log`. It requires the `NPM_TOKEN` repository secret.
+A sixth workflow (`release.yml`) runs only on `v*.*.*` tags. It verifies the tag matches `package.json`, runs the tests, publishes to npm, and cuts a GitHub release with a changelog generated from `git log`.
+
+Publishing uses npm trusted publishing (OIDC), not an `NPM_TOKEN` secret. The trust is registered on npmjs.com against this repository and the workflow filename `release.yml` — renaming that file breaks publishing until npm is updated to match, and the job must keep `id-token: write`. npm is upgraded before publishing because OIDC requires npm 11.5.1+ and `setup-node` ships npm 10.x. Provenance is attested automatically, so `--provenance` is not passed.
 
 ## Code Style Requirements
 
